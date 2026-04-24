@@ -1,5 +1,6 @@
 package fecaf.eduardo.gerenciador.handlers;
 
+import fecaf.eduardo.gerenciador.utils.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -36,5 +37,12 @@ public class GlobalExceptionHandler {
         response.put("errors", errors);
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+
+    @ExceptionHandler(UnauthorizedExceptionHandler.class)
+    public ResponseEntity<ApiResponse<Object>> handleUnauthorized(UnauthorizedExceptionHandler ex) {
+        return ResponseEntity.status(401).body(
+                new ApiResponse<>(false, ex.getMessage(), null)
+        );
     }
 }

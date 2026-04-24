@@ -1,9 +1,11 @@
 package fecaf.eduardo.gerenciador.features.users;
 
 import fecaf.eduardo.gerenciador.features.users.respository.User;
+import fecaf.eduardo.gerenciador.utils.ApiResponse;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,20 +18,24 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public String handleRegisterUser(@Valid @RequestBody User data) {
+    public ResponseEntity<ApiResponse<String>> handleRegisterUser(@Valid @RequestBody User data) {
         var email = data.getEmail();
         var password = data.getPassword();
 
-        var res = userService.handleRegister(email, password);
-        return res;
+        var responsee = userService.handleRegister(email, password);
+
+        ApiResponse<String> response = new ApiResponse<>(true, responsee, null);
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/login")
-    public String handleLoginUser(@Valid @RequestBody User data) {
+    public ResponseEntity<ApiResponse<String>> handleLoginUser(@Valid @RequestBody User data) {
         var email = data.getEmail();
         var password = data.getPassword();
 
-        var res = userService.handleLogin(email, password);
-        return res;
+        var token = userService.handleLogin(email, password);
+
+        ApiResponse<String> response = new ApiResponse<>(true, "Login realizado com sucesso", token);
+        return ResponseEntity.ok(response);
     }
 }
