@@ -27,9 +27,6 @@ public class JwtUtils {
                 .compact();
     }
 
-    public boolean isValid(String token) {
-
-    }
     public String validateToken(String token) {
         Claims claims = Jwts.parser()
                 .verifyWith(getKey())
