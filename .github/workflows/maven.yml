@@ -10,21 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: bitnami/postgresql
-        env:
-          POSTGRES_DB: gerenciador
-          POSTGRES_USER: admin
-          POSTGRES_PASSWORD: bc068b1cf35e28e92e54d4350513d276
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 5432:5432
-
     steps:
       - uses: actions/checkout@v4
 
