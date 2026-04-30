@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'bitnami/postgresql'
+    environment:
+      - 'POSTGRES_DB=gerenciador'
+      - 'POSTGRES_PASSWORD=bc068b1cf35e28e92e54d4350513d276'
+      - 'POSTGRES_USER=admin'
+    ports:
+      - '5432:5432'

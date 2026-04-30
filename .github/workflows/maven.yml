@@ -1,0 +1,46 @@
+name: todolist ci/cd
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: bitnami/postgresql
+        env:
+          POSTGRES_DB: gerenciador
+          POSTGRES_USER: admin
+          POSTGRES_PASSWORD: bc068b1cf35e28e92e54d4350513d276
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+        env:
+          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/gerenciador
+          SPRING_DATASOURCE_USERNAME: admin
+          SPRING_DATASOURCE_PASSWORD: bc068b1cf35e28e92e54d4350513d276
+
+      - name: Update dependency graph
+        uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
