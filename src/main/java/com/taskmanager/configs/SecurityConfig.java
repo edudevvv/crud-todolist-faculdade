@@ -24,6 +24,11 @@ public class SecurityConfig {
         "/auth/login", "/auth/register"
     };
 
+    private static final String[] SWAGGER_PATHS = {
+        "/docs", "/docs/**", "/v3/api-docs", "/v3/api-docs/**",
+        "/swagger-ui/**", "/swagger-ui.html"
+    };
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -35,6 +40,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(PUBLIC_PAGES).permitAll()
                 .requestMatchers(PUBLIC_API).permitAll()
+                .requestMatchers(SWAGGER_PATHS).permitAll()
                 .requestMatchers("/tasks/**").authenticated()
                 .anyRequest().authenticated()
             )

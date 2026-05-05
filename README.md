@@ -219,7 +219,7 @@ docker-compose up -d
 
 
 A aplicação estará disponível em: **http://localhost:3000**
-
+<br/>A documentação (swagger) estará disponível em: http://localhost:3000/docs
 ---
 
 ## 🚀 CI/CD
