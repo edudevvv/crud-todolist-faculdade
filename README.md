@@ -222,16 +222,6 @@ A aplicação estará disponível em: **http://localhost:3000**
 
 ---
 
-## 🔒 Segurança
-
-- **JWT (HS256)** com expiração de **1 hora**
-- Senhas armazenadas com **BCrypt**
-- Sessões **stateless** (sem cookies ou sessão no servidor)
-- Rotas protegidas por filtro JWT antes do `UsernamePasswordAuthenticationFilter`
-- CSRF desabilitado (adequado para APIs REST stateless)
-
----
-
 ## 🚀 CI/CD
 
 O projeto utiliza **GitHub Actions** para build automatizado a cada push ou Pull Request na branch `main`:
