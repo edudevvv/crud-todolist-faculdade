@@ -216,11 +216,17 @@ cd taskmanager
 ```bash
 docker-compose up -d
 ```
+--- 
+### 🔗 Links úteis:
+```
+Aplicação -> http://localhost:3000
+
+Documentação Swagger -> http://localhost:3000/docs
+```
 
 
-A aplicação estará disponível em: **http://localhost:3000**
-<br/>A documentação (swagger) estará disponível em: http://localhost:3000/docs
 ---
+
 
 ## 🚀 CI/CD
 
