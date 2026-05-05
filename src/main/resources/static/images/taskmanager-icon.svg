@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <title>TaskManager Icon</title>
+  <rect x="0" y="0" width="120" height="120" rx="26" fill="#4F46E5"/>
+  <rect x="28" y="48" width="36" height="36" rx="6" fill="#FFFFFF" opacity="0.3"/>
+  <rect x="38" y="38" width="36" height="36" rx="6" fill="#FFFFFF" opacity="0.55"/>
+  <rect x="48" y="28" width="36" height="36" rx="6" fill="#FFFFFF"/>
+  <path d="M 57 44 L 63 50 L 75 38" fill="none" stroke="#4F46E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -11,11 +11,8 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
 
-    public void save(String name, String description) {
-       Task task = new Task(name, description);
-
-       var tasks = this.taskRepository.save(task);
-       System.out.println(tasks);
-
+    public void save(String title, String description, Task.Priority priority, Task.Status status) {
+        Task task = new Task(title, description, priority, status);
+        taskRepository.save(task);
     }
 }

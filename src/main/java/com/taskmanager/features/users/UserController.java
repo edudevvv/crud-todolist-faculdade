@@ -34,6 +34,7 @@ public class UserController {
         var email = data.getEmail();
         var password = data.getPassword();
 
+        System.out.println(email + password);
         var token = userService.handleLogin(email, password);
 
         ApiResponse<String> response = new ApiResponse<>(true, "Login realizado com sucesso", token);
