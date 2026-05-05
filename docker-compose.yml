@@ -7,3 +7,20 @@ services:
       - 'POSTGRES_USER=admin'
     ports:
       - '5432:5432'
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'admin', '-d', 'gerenciador']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/gerenciador'
+      - 'SPRING_DATASOURCE_USERNAME=admin'
+      - 'SPRING_DATASOURCE_PASSWORD=bc068b1cf35e28e92e54d4350513d276'
+    depends_on:
+      postgres:
+        condition: service_healthy
