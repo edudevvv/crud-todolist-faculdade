@@ -25,8 +25,8 @@ public class SecurityConfig {
     };
 
     private static final String[] SWAGGER_PATHS = {
-        "/docs", "/docs/**", "/v3/api-docs", "/v3/api-docs/**",
-        "/swagger-ui/**", "/swagger-ui.html"
+        "/docs", "/docs/", "/docs/**", "/v3/api-docs", "/v3/api-docs/**",
+        "/swagger-ui/**", "/swagger-ui.html", "/webjars/**"
     };
 
     @Bean

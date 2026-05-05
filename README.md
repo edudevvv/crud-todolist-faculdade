@@ -214,7 +214,7 @@ cd taskmanager
 ### 2. Suba a aplicação com Docker
 
 ```bash
-docker-compose up -d
+docker-compose down && docker-compose up --build -d
 ```
 --- 
 ### 🔗 Links úteis:
