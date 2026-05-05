@@ -248,5 +248,5 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ---
 
 <div align="center">
-  Desenvolvido por <a href="https://github.com/edudevvv"><strong>Eduardo Silva</strong></a>
+  Desenvolvido por <a href="https://github.com/edudevvv"><strong>Eduardo Silva Moraes</strong></a>
 </div>
