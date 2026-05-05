@@ -207,8 +207,8 @@ Content-Type: application/json
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/edudevvv/taskmanager.git
-cd taskmanager
+git clone https://github.com/edudevvv/crud-todolist-faculdade.git
+cd crud-todolist-faculdade
 ```
 
 ### 2. Suba a aplicação com Docker
