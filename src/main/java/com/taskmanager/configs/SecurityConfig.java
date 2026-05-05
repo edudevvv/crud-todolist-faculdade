@@ -14,14 +14,12 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthFilter jwtAuthFilter;
 
-    // Rotas de página (HTML) — auth feita client-side via JS
     private static final String[] PUBLIC_PAGES = {
         "/", "/login", "/register", "/dashboard",
         "/login.html", "/register.html", "/index.html",
         "/css/**", "/js/**", "/images/*"
     };
 
-    // Rotas de auth pública da API
     private static final String[] PUBLIC_API = {
         "/auth/login", "/auth/register"
     };

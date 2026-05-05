@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -66,9 +66,8 @@ public class Task {
         updatedAt = LocalDateTime.now();
     }
 
-    // Getters & Setters
-    public Long getId()                  { return id; }
-    public void setId(Long id)           { this.id = id; }
+    public String getId()                  { return id; }
+    public void setId(String id)           { this.id = id; }
 
     public User getUser()              { return user; }
     public void setUser(User user)     { this.user = user; }

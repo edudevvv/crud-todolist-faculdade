@@ -55,7 +55,7 @@ public class TaskController {
 
     @PutMapping("/edit/{taskId}")
     public ResponseEntity<ApiResponse<String>> handleEditTask(
-            @PathVariable Long taskId,
+            @PathVariable String taskId,
             @Valid @RequestBody Task taskData) {
 
         User user = getAuthenticatedUser();
@@ -72,7 +72,7 @@ public class TaskController {
     }
 
     @DeleteMapping("/delete/{taskId}")
-    public ResponseEntity<ApiResponse<String>> handleDeleteTask(@PathVariable Long taskId) {
+    public ResponseEntity<ApiResponse<String>> handleDeleteTask(@PathVariable String taskId) {
         User user = getAuthenticatedUser();
         Task task = taskRepository.findByIdAndUser(taskId, user)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Task não encontrada."));
