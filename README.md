@@ -211,17 +211,12 @@ git clone https://github.com/edudevvv/taskmanager.git
 cd taskmanager
 ```
 
-### 2. Suba o banco de dados com Docker
+### 2. Suba a aplicação com Docker
 
 ```bash
 docker-compose up -d
 ```
 
-### 3. Execute a aplicação
-
-```bash
-./mvnw spring-boot:run
-```
 
 A aplicação estará disponível em: **http://localhost:3000**
 
