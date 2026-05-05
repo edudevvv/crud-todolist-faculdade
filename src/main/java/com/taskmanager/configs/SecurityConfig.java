@@ -18,7 +18,7 @@ public class SecurityConfig {
     private static final String[] PUBLIC_PAGES = {
         "/", "/login", "/register", "/dashboard",
         "/login.html", "/register.html", "/index.html",
-        "/css/**", "/js/**"
+        "/css/**", "/js/**", "/images/*"
     };
 
     // Rotas de auth pública da API

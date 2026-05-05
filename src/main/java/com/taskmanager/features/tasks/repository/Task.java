@@ -1,5 +1,7 @@
 package com.taskmanager.features.tasks.repository;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.taskmanager.features.users.respository.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -13,6 +15,11 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
+    private User user;
 
     @NotBlank(message = "Nome da task é obrigatório")
     @Size(min = 3, max = 100, message = "Nome deve ter entre 3 e 100 caracteres")
@@ -41,11 +48,12 @@ public class Task {
 
     public Task() {}
 
-    public Task(String title, String description, Priority priority, Status status) {
+    public Task(String title, String description, Priority priority, Status status, User user) {
         this.title = title;
         this.description = description;
         this.priority = priority;
         this.status = status;
+        this.user = user;
     }
 
     @PrePersist
@@ -61,6 +69,9 @@ public class Task {
     // Getters & Setters
     public Long getId()                  { return id; }
     public void setId(Long id)           { this.id = id; }
+
+    public User getUser()              { return user; }
+    public void setUser(User user)     { this.user = user; }
 
     public String getTitle()             { return title; }
     public void setTitle(String title)   { this.title = title; }
